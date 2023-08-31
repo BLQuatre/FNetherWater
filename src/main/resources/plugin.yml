@@ -1,0 +1,4 @@
+name: FNetherWater
+version: '${project.version}'
+main: fr.bl4.fnetherwater.FNetherWater
+api-version: '1.20'
