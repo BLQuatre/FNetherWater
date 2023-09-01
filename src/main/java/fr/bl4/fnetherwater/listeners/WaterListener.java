@@ -1,5 +1,6 @@
 package fr.bl4.fnetherwater.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -37,8 +38,15 @@ public class WaterListener implements Listener {
 
         if (block.getBlockData() instanceof Waterlogged waterloggedBlockData) {
             waterloggedBlockData.setWaterlogged(true);
+            block.setBlockData(waterloggedBlockData);
         } else {
-            block.getRelative(event.getBlockFace()).setType(Material.WATER);
+            Block relative = block.getRelative(event.getBlockFace());
+            if (relative.getBlockData() instanceof Waterlogged waterloggedRelative) {
+                waterloggedRelative.setWaterlogged(true);
+                relative.setBlockData(waterloggedRelative);
+            } else {
+                relative.setType(Material.WATER);
+            }
         }
 
         if (player.getGameMode() != GameMode.CREATIVE) {

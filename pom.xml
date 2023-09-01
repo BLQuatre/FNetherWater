@@ -6,7 +6,7 @@
 
     <groupId>fr.bl4</groupId>
     <artifactId>FNetherWater</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>FNetherWater</name>
